@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import './App.css';
 import {TaskType, Todolist} from './Todolist';
 import {v1} from 'uuid';
@@ -48,7 +48,7 @@ function App() {
         setTasks({...tasks});
     }
 
-    function addTask(title: string, todolistId: string) {
+    function addTask (title: string, todolistId: string) {
         let task = {id: v1(), title: title, isDone: false};
         //достанем нужный массив по todolistId:
         let todolistTasks = tasks[todolistId];
